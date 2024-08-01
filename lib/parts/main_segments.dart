@@ -19,6 +19,7 @@ class _MainSegmentState extends State<MainSegment> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {},
+      // ignore: sort_child_properties_last
       child: Column(
         children: [
           Image.asset(
