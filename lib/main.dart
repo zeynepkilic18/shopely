@@ -18,9 +18,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   late Duration _timeUntilTarget;
 
-  final PageController controller = PageController(initialPage: 0);
+  final PageController controller = PageController(
+      initialPage: 0); //Sayfalar arasında geçiş yapmak için, 0.sayfadan başlar.
 
-  int currentPage = 0;
+  int currentPage = 0; //Güncelde hangi sayfada bulunuyoruz
 
   late Color dot1 = const Color.fromRGBO(29, 78, 216, 1);
   late Color dot2 = Colors.grey;
@@ -28,13 +29,14 @@ class _MyAppState extends State<MyApp> {
   late Color dot4 = Colors.grey;
   late Color dot5 = Colors.grey;
 
-  int sayac = 0;
+  int sayac = 0; //8 sayniyede bir diğer resme geçmesi için tuttuk
 
   @override
   void initState() {
     super.initState();
 
-    DateTime targetDate = DateTime(2024, 1, 30, 11);
+    DateTime targetDate =
+        DateTime(2024, 8, 3, 11); //Bu tarihe kalan süreyi gösterir
 
     Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
@@ -103,8 +105,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text("Home"),
+          backgroundColor: Color.fromARGB(255, 231, 178, 196),
           centerTitle: false,
           actions: [
             IconButton(
@@ -128,7 +132,7 @@ class _MyAppState extends State<MyApp> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 24),
+              const SizedBox(height: 15),
               const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: TextField(
@@ -175,7 +179,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -188,7 +192,7 @@ class _MyAppState extends State<MyApp> {
                       width: 15,
                     ),
                     MainSegment(
-                      title: 'electronics',
+                      title: 'Electronics',
                       pictureAddress: 'assets/electronic.png',
                     ),
                     SizedBox(
@@ -216,7 +220,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               const SizedBox(
-                height: 25,
+                height: 35,
               ),
               Container(
                 width: 360,
@@ -292,12 +296,12 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               const SizedBox(
-                height: 65,
+                height: 40,
               ),
               Container(
                 height: 600,
                 width: 400,
-                color: const Color.fromARGB(255, 238, 238, 238),
+                color: Color.fromARGB(255, 255, 254, 254),
                 child: Stack(
                   children: [
                     Positioned(
@@ -366,7 +370,7 @@ class _MyAppState extends State<MyApp> {
                         child: const Column(
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(10),
+                              padding: EdgeInsets.all(5),
                             ),
                             Row(
                               children: [
@@ -383,7 +387,7 @@ class _MyAppState extends State<MyApp> {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10),
+                              padding: EdgeInsets.all(5),
                             ),
                             Row(
                               children: [
@@ -661,23 +665,24 @@ class _MyAppState extends State<MyApp> {
             children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 231, 178, 196),
                 ),
                 //BoxDecoration
                 child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.blue),
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 231, 178, 196)),
                   accountName: Text(
-                    "Ali Demir",
+                    "Zeynep Kılıç",
                     style: TextStyle(fontSize: 18),
                   ),
-                  accountEmail: Text("alidemir200258@gmail.com"),
+                  accountEmail: Text("18zeynepklc@gmail.com"),
                   currentAccountPictureSize: Size.square(50),
                   currentAccountPicture: Padding(
                     padding: EdgeInsets.only(bottom: 9.0),
                     child: CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 242, 254, 13),
+                      backgroundColor: Color.fromARGB(255, 150, 88, 138),
                       child: Text(
-                        "A",
+                        "Z",
                         style: TextStyle(fontSize: 30.0, color: Colors.white),
                       ), //Text
                     ),
@@ -690,8 +695,13 @@ class _MyAppState extends State<MyApp> {
                 onTap: () {},
               ),
               ListTile(
-                leading: const Icon(Icons.book),
-                title: const Text(' My Course '),
+                leading: const Icon(Icons.grid_view),
+                title: const Text(' Shop by Categories '),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.shopping_bag),
+                title: const Text(' My Orders '),
                 onTap: () {},
               ),
               ListTile(
@@ -700,15 +710,31 @@ class _MyAppState extends State<MyApp> {
                 onTap: () {},
               ),
               ListTile(
-                leading: const Icon(Icons.video_label),
-                title: const Text(' Saved Videos '),
+                leading: const Icon(Icons.favorite),
+                title: const Text(' Favourites '),
                 onTap: () {},
               ),
               ListTile(
-                leading: const Icon(Icons.edit),
-                title: const Text(' Edit Profile '),
+                leading: const Icon(Icons.help),
+                title: const Text(' FAQs '),
                 onTap: () {},
               ),
+              ListTile(
+                leading: const Icon(Icons.location_on),
+                title: const Text(' Addresess '),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.credit_card),
+                title: const Text(' Saved Cards '),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.article),
+                title: const Text(' Terms & Conditions '),
+                onTap: () {},
+              ),
+
               ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('LogOut'),
