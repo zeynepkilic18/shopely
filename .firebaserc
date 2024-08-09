@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "bee-store-itu"
-  }
+    "default": "shopelyzk",
+    "development": "shopelyzk"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

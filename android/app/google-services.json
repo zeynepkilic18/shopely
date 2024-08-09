@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "411717930918",
+    "firebase_url": "https://shopelyzk-default-rtdb.firebaseio.com",
+    "project_id": "shopelyzk",
+    "storage_bucket": "shopelyzk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411717930918:android:0911400b22cbef81a14967",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8yfwcpzzygQurL6l62pRa4KQtUnRbl5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

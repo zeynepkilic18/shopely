@@ -36,7 +36,7 @@ bool isfavorite = false;
 class _MainPageProductWidgetState extends State<RecomendedPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: Card(
         child: Column(

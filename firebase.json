@@ -1,16 +1,1 @@
-{
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
+{"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]},"flutter":{"platforms":{"android":{"default":{"projectId":"shopelyzk","appId":"1:411717930918:android:0911400b22cbef81a14967","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"shopelyzk","configurations":{"android":"1:411717930918:android:0911400b22cbef81a14967","ios":"1:411717930918:ios:7a1b9c47c0279acba14967","macos":"1:411717930918:ios:7a1b9c47c0279acba14967","web":"1:411717930918:web:ebf7c7a48ac6bf8ea14967","windows":"1:411717930918:web:e4d88423f45e7d22a14967"}}}}}}

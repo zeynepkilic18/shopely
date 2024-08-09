@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({
-    super.key,
+    Key? key,
     required this.title,
     required this.pitcureadress,
     required this.usdFiyat,
@@ -10,7 +10,7 @@ class MainPage extends StatefulWidget {
     required this.rating,
     required this.stock,
     required this.oldprice,
-  });
+  }) : super(key: key);
 
   final String title;
   final String pitcureadress;
@@ -21,119 +21,68 @@ class MainPage extends StatefulWidget {
   final double oldprice;
 
   @override
-  State createState() => _MainPageProductWidgetState();
-
-  /* 
-  Üstteki fonksiyonun uzun versiyonu
-  State createState() {
-  return _MainPageProductWidgetState();
-  } 
-  */
-}
-
-class _MainPageProductWidgetState extends State<MainPage> {
-  bool isfavorite = false;
-
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      width: 180,
-      child: Card(
-        elevation: 0, // Elevation of the card
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0), // Border radius of the card
-        ),
-        color: Colors.white,
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Image.asset(
-                  widget.pitcureadress,
-                  height: 180,
-                ),
-                Positioned.fill(
-                    bottom: 70,
-                    left: 116,
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isfavorite = !isfavorite;
-                          });
-                        },
-                        child: Icon(
-                          Icons.favorite,
-                          color: isfavorite
-                              ? Colors.red
-                              : const Color.fromARGB(20, 0, 0, 0),
-                          // You can customize the color
-                          size: 20.0, // You can customize the size
-                        ),
-                      ),
-                    )),
-              ],
-            ),
-            Text(
-              widget.title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
+    return Card(
+      color: Colors.white,
+      elevation: 5,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            pitcureadress,
+            fit: BoxFit.cover,
+            height: 150,
+            width: 200,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "\$${widget.usdFiyat} ",
+                  title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
                 ),
-                Text(
-                  "\$${widget.oldprice} ",
-                  style: const TextStyle(
-                    decoration: TextDecoration.lineThrough,
-                    fontSize: 10,
-                  ),
-                ),
-                Text(
-                  "${widget.percentageoff}% OFF",
-                  style: const TextStyle(
-                    color: Colors.orange,
-                  ),
-                ),
               ],
             ),
-            const SizedBox(
-              height: 10,
+          ),
+          Text(
+            '\$$usdFiyat',
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: Colors.red,
             ),
-            Row(
-              children: [
-                Image.asset("assets/Rating-Icon.png"),
-                const SizedBox(
-                  width: 6,
-                ),
-                Text(
-                  "${widget.rating} ",
-                  style: const TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-                Text(
-                  "(${widget.stock})",
-                  style: const TextStyle(
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
+          ),
+          Text(
+            'Old price: \$$oldprice',
+            style: const TextStyle(
+              decoration: TextDecoration.lineThrough,
+              fontSize: 10,
             ),
-          ],
-        ),
+          ),
+          Text(
+            '$percentageoff% OFF',
+            style: const TextStyle(
+              color: Colors.orange,
+            ),
+          ),
+          Text(
+            'Rating: $rating ',
+            style: const TextStyle(
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            'Stock: $stock',
+            style: const TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+        ],
       ),
     );
   }
